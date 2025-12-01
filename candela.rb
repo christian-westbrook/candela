@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
-f = File.new("films.txt")
-puts f.readline
-puts f.readline
-puts f.readline
+def ingest_films
+    file_of_films = File.new("films.txt")
+    file_of_films.readlines
+end
+
+puts ingest_films
