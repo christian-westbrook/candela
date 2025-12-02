@@ -41,6 +41,10 @@ class Calendar
 
         write_films
 
+        unveil_film(random_sealed_film)
+    end
+
+    def unveil_film(film)
         print "\nIt's day #{(@opened_films.length)} of your Advent calendar!"
         sleep(1.0)
         print " Only #{(25 - @opened_films.length)} days left until Christmas!"
@@ -54,7 +58,7 @@ class Calendar
         sleep(0.5)
         print "."
         sleep(2)
-        print " #{random_sealed_film}!"
+        print " #{film}!"
         sleep(1)
         print " Merry Christmas!"
         sleep(2.0)
