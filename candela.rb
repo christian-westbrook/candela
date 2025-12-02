@@ -10,8 +10,8 @@ class Calendar
         @sealed_films = []
         @opened_films = []
 
-        @sealed_file_path = "sealed.txt"
-        @opened_file_path = "opened.txt"
+        @sealed_file_path = "sealed.json"
+        @opened_file_path = "opened.json"
 
         if not File.exist?(@sealed_file_path)
             sealed_file = File.new(@sealed_file_path, "w")
