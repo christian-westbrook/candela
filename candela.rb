@@ -39,35 +39,13 @@ class Calendar
         @opened_films.push(random_sealed_film)
         @sealed_films.delete_at(random_film_index)
 
-        write_films
+        write_films_lists
 
         unveil_film(random_sealed_film)
     end
 
-    def unveil_film(film)
-        print "\nIt's day #{(@opened_films.length)} of your Advent calendar!"
-        sleep(1.0)
-        print " Only #{(25 - @opened_films.length)} days left until Christmas!"
-        sleep(1.0)
-        print "\n\n"
-        print "You peel open the next space on your Advent calendar and find "
-        sleep(1)
-        print "."
-        sleep(0.5)
-        print "."
-        sleep(0.5)
-        print "."
-        sleep(2)
-        print " #{film}!"
-        sleep(1)
-        print " Merry Christmas!"
-        sleep(2.0)
-        print "\n\n"
-        print "(Press Enter to exit) "
-        gets
-    end
-
-    def write_films
+    # Writes the sealed and opened films lists to disk
+    def write_films_lists
         sealed_file = File.new(@sealed_file_path, "w")
         opened_file = File.new(@opened_file_path, "w")
 
@@ -80,7 +58,24 @@ class Calendar
         sealed_file.flush
         opened_file.flush
     end
-end
 
-calendar = Calendar.new()
-calendar.open_a_film
+    # Unveils the newly opened film to the user
+    def unveil_film(film)
+        print_and_sleep("\nIt's day #{(@opened_films.length)} of your Advent calendar!",      1.0)
+        print_and_sleep(" Only #{(25 - @opened_films.length)} days left until Christmas!",    1.0)
+        print_and_sleep("\n\nYou peel open the next space on your Advent calendar and find ", 1.0)
+        print_and_sleep(".", 0.5)
+        print_and_sleep(".", 0.5)
+        print_and_sleep(".", 2.0)
+        print_and_sleep(" #{film}!", 1.0)
+        print_and_sleep(" Merry Christmas!", 2.0)
+        print_and_sleep("\n\n(Press Enter to exit) ", 0.0)
+        gets
+    end
+
+    # Prints a message before sleeping for a duration
+    def print_and_sleep(message, delay)
+        print message
+        sleep(delay)
+    end
+end
