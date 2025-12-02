@@ -25,7 +25,7 @@ class Calendar
     end
         
     # Ingests the user's films from films.txt
-    def ingest_films
+    def ingest_films()
         file_of_films = File.new("films.txt")
         file_of_films.readlines.map { |line| line.strip }
     end
@@ -51,7 +51,7 @@ class Calendar
     end
 
     # Writes the sealed and opened films lists to disk
-    def write_films_lists
+    def write_films_lists()
         sealed_file = File.new(@sealed_file_path, "w")
         opened_file = File.new(@opened_file_path, "w")
 
