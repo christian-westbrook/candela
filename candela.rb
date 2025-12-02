@@ -2,7 +2,9 @@
 
 require 'json'
 
+# Represents an Advent calendar of Christmas films
 class Calendar
+
     attr_accessor :sealed_films
     attr_accessor :opened_films
 
