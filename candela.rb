@@ -83,3 +83,8 @@ class Calendar
         sleep(delay)
     end
 end
+
+if __FILE__ == $0
+    calendar = Calendar.new()
+    calendar.open_a_film
+end
