@@ -6,6 +6,8 @@ class Calendar
     attr_accessor :sealed_films
     attr_accessor :opened_films
 
+    # If a sealed films file isn't detected, this ingests the user's films file
+    # and seals them, creating a new sealed films file to use when opening a film.
     def initialize()
         @sealed_films = []
         @opened_films = []
@@ -20,11 +22,13 @@ class Calendar
         end
     end
         
+    # Ingests the user's films from films.txt
     def ingest_films
         file_of_films = File.new("films.txt")
         file_of_films.readlines.map { |line| line.strip }
     end
     
+    # Randomly selects and opens a sealed film
     def open_a_film()
         sealed_films_json = File.read(@sealed_file_path)
         opened_films_json = File.read(@opened_file_path)
