@@ -2,6 +2,8 @@
 
 When you're busy during the holidays, choosing the next Christmas movie to watch can be hard. Candela puts a fun twist on this decision by creating an Advent calendar of uplifting Christmas films for you to open each day leading up to Christmas.
 
+![Example of Candela output](./docs/assets/example.png)
+
 ## Dependencies
 
 Candela temporarily requires Ruby to be installed on your machine. Stay tuned for an update that will allow you to run Candela without installing anything extra or using the command-line.
